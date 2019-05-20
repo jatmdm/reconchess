@@ -212,9 +212,9 @@ class DJBot(Player):
         for move in move_actions:
             test_board = board
             test_board.push(move)
-            # cur_score = self.evaluateBoard(test_board)
-            cur_score = self.naiveEvaluation(test_board)
-            if best_score < cur_score:
+            cur_score = self.evaluateBoard(test_board)
+            # cur_score = self.naiveEvaluation(test_board)
+            if best_score <= cur_score:
                     best_score = cur_score
                     best_move = move
         return best_move
