@@ -4,7 +4,7 @@ from reconchess import *
 import os
 # from stockfish import Stockfish
 
-class DJBot(Player):
+class DJBotNaiveBalance(Player):
 
     # GENERAL STRATEGY:
 
@@ -23,7 +23,6 @@ class DJBot(Player):
         self.color = None
         self.my_piece_captured_square = None
         self.lastMove = None
-        self.reverseLastMove = None
         # self.stockfish = Stockfish()
         self.space_conversions = {
         'a1': chess.A1,'a2': chess.A2,'a3': chess.A3,'a4': chess.A4,'a5': chess.A5,'a6': chess.A6,'a7': chess.A7,'a8': chess.A8,
@@ -334,18 +333,18 @@ class DJBot(Player):
 
     def calculateBestMove(self, board: chess.Board, move_actions: List[chess.Move]):
         best_move = None
-        # cur_score = 0
+        cur_score = 0
         best_score = -1000000
-        # test_board = board
+        test_board = board
         # print("move actions:" + str(move_actions))
         for move in move_actions:
             test_board = board
             test_board.push(move)
-            cur_score = self.evaluateBoard(test_board)
+            cur_score = self.naiveBalanceEvaluation(test_board)
             # if self.lastMove is not None:
             #     if move is self.reverse_move(self.lastMove):
             #         cur_score = -10000000
-            if best_score <= cur_score:
+            if best_score < cur_score:
                     best_score = cur_score
                     best_move = move
         return best_move
