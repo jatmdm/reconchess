@@ -104,7 +104,7 @@ class DJBot(Player):
         return chess.Move( self.space_conversions[source], self.space_conversions[dest] )
 
     def naiveEvaluation(self, board :chess.Board):
-        def evaluateBoard(self, board : chess.Board):
+        #def evaluateBoard(self, board : chess.Board):
         pieceScores = {chess.PAWN : 10, chess.ROOK: 50, chess.KNIGHT: 70, chess.BISHOP: 30, chess.QUEEN: 100, chess.KING: 100000 }
         score = 0
         #eval pawns
