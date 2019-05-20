@@ -334,9 +334,9 @@ class DJBot(Player):
 
     def calculateBestMove(self, board: chess.Board, move_actions: List[chess.Move]):
         best_move = None
-        cur_score = 0
+        # cur_score = 0
         best_score = -1000000
-        test_board = board
+        # test_board = board
         # print("move actions:" + str(move_actions))
         for move in move_actions:
             test_board = board
@@ -345,7 +345,7 @@ class DJBot(Player):
             # if self.lastMove is not None:
             #     if move is self.reverse_move(self.lastMove):
             #         cur_score = -10000000
-            if best_score < cur_score:
+            if best_score <= cur_score:
                     best_score = cur_score
                     best_move = move
         return best_move
