@@ -114,7 +114,7 @@ class DJBot(Player):
         score += pieceScores[chess.BISHOP] * len(board.pieces(chess.BISHOP, self.color))
         score += pieceScores[chess.QUEEN] * len(board.pieces(chess.QUEEN, self.color))
         score += pieceScores[chess.KING] * len(board.pieces(chess.KING, self.color))
-        print(score)
+        # print(score)
         return score
 
     def evaluateBoard(self, board : chess.Board):
